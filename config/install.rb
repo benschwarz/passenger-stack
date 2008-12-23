@@ -1,10 +1,9 @@
 # Require our stack
-%w(essential server scm ruby_enterprise mysql memcached).each do |r|
+%w(essential server scm ruby ruby_enterprise mysql memcached).each do |r|
   require "stack/#{r}"
 end
 
 policy :ffolio, :roles => :app do
-  requires :ruby
   requires :appserver
   requires :database
   requires :webserver

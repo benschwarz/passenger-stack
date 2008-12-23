@@ -1,3 +1,5 @@
+# Passenger stack
+
 ## Scripts for [Sprinkle](http://github.com/crafterm/sprinkle/ "Sprinkle"), the provisioning tool
 
 Deploy a basic stack for running rack based ruby applications with ease!

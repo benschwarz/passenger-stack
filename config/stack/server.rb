@@ -1,20 +1,18 @@
-# Contains software created by Phusion.nl which is Ruby Enterprise Edition
-# and mod_rails
 package :passenger, :provides => :appserver do
   description 'Phusion Passenger (mod_rails)'
   gem 'passenger' do
-    post :install, 'echo -en "\n\n\n\n" | passenger-install-apache2-module'
+    post :install, 'echo -en "\n\n\n\n" | sudo passenger-install-apache2-module'
     
     # Create the passenger conf file
-    post :install, 'mkdir /etc/apache2/extras'
+    post :install, 'mkdir -p /etc/apache2/extras'
     post :install, 'touch /etc/apache2/extras/passenger.conf'
-    post :install, "echo 'Include /etc/apache2/extras/passenger.conf' >> /etc/apache2/apache2.conf"
+    post :install, 'echo "Include /etc/apache2/extras/passenger.conf"|sudo tee -a /etc/apache2/apache2.conf'
     
-    [%q(LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-2.0.6/ext/apache2/mod_passenger.so),
-    %q(PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-2.0.6),
-    %q(PassengerRuby /usr/bin/ruby1.8),
-    %q(RailsEnv development)].each do |line|
-      post :install, "echo '#{line}' >> /etc/apache2/extras/passenger.conf"
+    [%q(LoadModule passenger_module /usr/local/lib/ruby/gems/1.8/gems/passenger-2.0.6/ext/apache2/mod_passenger.so),
+    %q(PassengerRoot /usr/local/lib/ruby/gems/1.8/gems/passenger-2.0.6),
+    %q(PassengerRuby /usr/local/bin/ruby),
+    %q(RailsEnv production)].each do |line|
+      post :install, "echo '#{line}' |sudo tee -a /etc/apache2/extras/passenger.conf"
     end
     
     # Restart apache to note changes
@@ -29,6 +27,7 @@ package :passenger, :provides => :appserver do
   
   requires :apache
   requires :apache2_prefork_dev
+  requires :ruby
 end
 
 package :apache, :provides => :webserver do
