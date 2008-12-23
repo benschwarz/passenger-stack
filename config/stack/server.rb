@@ -1,3 +1,19 @@
+package :apache, :provides => :webserver do
+  description 'Apache2 web server.'
+  apt 'apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 ssl-cert' do
+    post :install, 'a2enmod rewrite'
+  end
+  
+  verify do
+    has_process 'apache2'
+  end
+end
+
+package :apache2_prefork_dev do
+  description 'A dependency required by some packages.'
+  apt 'apache2-prefork-dev'
+end
+
 package :passenger, :provides => :appserver do
   description 'Phusion Passenger (mod_rails)'
   gem 'passenger' do
@@ -21,27 +37,11 @@ package :passenger, :provides => :appserver do
   
   verify do
     has_file '/etc/apache2/extras/passenger.conf'
-    has_file '/usr/lib/ruby/gems/1.8/gems/passenger-2.0.6/ext/apache2/mod_passenger.so'
-    has_directory '/usr/lib/ruby/gems/1.8/gems/passenger-2.0.6'
+    has_file '/usr/local/lib/ruby/gems/1.8/gems/passenger-2.0.6/ext/apache2/mod_passenger.so'
+    has_directory '/usr/local/lib/ruby/gems/1.8/gems/passenger-2.0.6'
   end
   
   requires :apache
   requires :apache2_prefork_dev
   requires :ruby
-end
-
-package :apache, :provides => :webserver do
-  description 'Apache2 web server.'
-  apt 'apache2 apache2.2-common apache2-mpm-prefork apache2-utils libexpat1 ssl-cert' do
-    post :install, 'a2enmod rewrite'
-  end
-  
-  verify do
-    has_process 'apache2'
-  end
-end
-
-package :apache2_prefork_dev do
-  description 'A dependency required by some packages.'
-  apt 'apache2-prefork-dev'
 end
