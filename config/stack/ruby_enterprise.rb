@@ -12,10 +12,8 @@ package :ruby_enterprise do
     
     # Remove standard ruby binaries
     post :install, 'rm /usr/local/bin/ruby'
-    post :install, 'rm /usr/local/bin/ruby18'
     post :install, 'rm /usr/local/bin/gem'
     post :install, 'rm /usr/local/bin/rake'
-    post :install, 'rm /usr/local/bin/rails'
     
     # Symlink ruby enterprise binaries
     %w(ruby gem rake rails).each do |bin|
@@ -23,10 +21,10 @@ package :ruby_enterprise do
     end
   end
   
-  verify do
-    has_directory "/opt/ruby-enterprise-#{version}"
-    has_executable "/opt/ruby-enterprise-#{version}/bin/ruby"
-  end
+  # verify do
+  #   has_directory "/opt/ruby-enterprise-#{version}"
+  #   has_executable "/opt/ruby-enterprise-#{version}/bin/ruby"
+  # end
   
   requires :apache
   requires :passenger

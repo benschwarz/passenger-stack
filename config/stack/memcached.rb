@@ -1,6 +1,10 @@
 package :memcached_daemon, :provides => :memcached do
   description 'Memcached, a distributed memory object store'
   apt %w( memcached )
+  
+  verify do
+    has_process "memcached"
+  end
 end
 
 package :libmemcached do
