@@ -1,0 +1,10 @@
+set :application, "your-app"
+set :repository,  "git@github.com:you/your-app.git"
+set :server_url, "your-app-server.com"
+set :scm, :git
+
+role :app, server_url
+role :web, server_url
+role :db,  server_url, :primary => true
+
+set :deploy_to, "/var/www/#{application}"
