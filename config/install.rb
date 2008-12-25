@@ -1,6 +1,6 @@
 # Require our stack
 %w(essential server scm ruby ruby_enterprise mysql memcached).each do |r|
-  require "stack/#{r}"
+  require File.join(File.dirname(__FILE__), "stack", r)
 end
 
 policy :ffolio, :roles => :app do
@@ -15,7 +15,11 @@ end
 deployment do
   # mechanism for deployment
   delivery :capistrano do
-    recipes 'deploy'
+    begin
+      recipes 'Capfile'
+    rescue LoadError
+      recipes 'deploy'
+    end
   end
  
   # source based package installer defaults
