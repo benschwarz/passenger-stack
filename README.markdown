@@ -33,7 +33,7 @@ Other things you should probably consider:
 * Ruby
 * Capistrano
 * Sprinkle (github.com/crafterm/sprinkle)
-* An Ubuntu based VPS (known to not work on Debian Etch, haven't looked into why)
+* An Ubuntu based VPS (known to not work on Debian Etch, this is a sprinkle apt issue and has been forwarded to crafterm)
 
 ## Thanks
 
