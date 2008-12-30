@@ -21,20 +21,30 @@ Other things you should probably consider:
 * Close everything except for port 80 and 22
 * Disallow password logins and use a passphrased RSA key
 
-### Wait, what does it install?
+### My app isn't running
+
+Read [these tips](http://github.com/benschwarz/passenger-stack/wikis/my-app-isnt-running) to get you humming
+
+### Wait, what does all this install?
 
 * Apache (Apt)
 * Ruby enterprise (Source) [includes rubygems]
 * Passenger (Rubygem)
+* Memcached (Apt)
 * Libmemcached (Source)
 * MySQL (Apt)
 * Git (Apt)
+* Ruby 1.8.6* 
+
+### Ruby 1.8.6?
+Ruby 1.8.6 isn't used within these installation scripts; Ruby Enterprise binaries overwrite the default ruby, rake, and gem binaries so as to not confuse you (by having multiple binaries available)
+
 
 ## Requirements
 * Ruby
 * Capistrano
 * Sprinkle (github.com/crafterm/sprinkle)
-* An Ubuntu based VPS (known to not work on Debian Etch, this is a sprinkle apt issue and has been forwarded to crafterm)
+* An Ubuntu based VPS (known to not work on Debian Etch†)
 
 ## Thanks
 
@@ -44,3 +54,7 @@ Marcus Crafter and other Sprinkle contributors
 
 Don't run this on a system that has already been deemed "in production", its not malicious, but theres a fair chance
 that you'll ass something up monumentally. You have been warned. 
+
+### Footnotes
+
+† This issue lies between differences in apt between debian and ubuntu, my feedback has been forwarded and discussed with Marcus, the author of sprinkle. I believe he is looking into it.
