@@ -7,6 +7,7 @@ Scripts for [Sprinkle](http://github.com/crafterm/sprinkle/ "Sprinkle"), the pro
 * Create yourself a user, add yourself to the sudoers file
 * Apt-get update
 * Set your slices url / ip address in deploy.rb (deploy.rb.example provided)
+* Set username in deploy.rb if it isn't the same as your local machine (deploy.rb.example provided)
 
 From your local system (from the passenger-stack/config directory), run:
 
@@ -33,7 +34,7 @@ Other things you should probably consider:
 * Ruby
 * Capistrano
 * Sprinkle (github.com/crafterm/sprinkle)
-* An Ubuntu based VPS (known to not work on Debian Etch, haven't looked into why)
+* An Ubuntu based VPS (known to not work on Debian Etch, this is a sprinkle apt issue and has been forwarded to crafterm)
 
 ## Thanks
 
