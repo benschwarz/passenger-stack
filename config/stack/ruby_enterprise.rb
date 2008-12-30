@@ -19,12 +19,15 @@ package :ruby_enterprise do
     %w(ruby gem rake rails).each do |bin|
       post :install, "ln -s /opt/ruby-enterprise-#{version}/bin/#{bin} /usr/local/bin/"
     end
+    
+    # Symlink for other binaries
+    #post :install "sudo ln -s /opt/ruby-enterprise-#{version}/bin/ /usr/local/bin/RE-binaries"
   end
   
-  # verify do
-  #   has_directory "/opt/ruby-enterprise-#{version}"
-  #   has_executable "/opt/ruby-enterprise-#{version}/bin/ruby"
-  # end
+  verify do
+    has_directory "/opt/ruby-enterprise-#{version}"
+    has_executable "/opt/ruby-enterprise-#{version}/bin/ruby"
+  end
   
   requires :apache
   requires :passenger

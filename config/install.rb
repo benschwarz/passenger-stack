@@ -9,6 +9,7 @@ policy :ffolio, :roles => :app do
   requires :webserver
   requires :scm 
   requires :memcached
+  requires :libmemcached
   requires :ruby_enterprise
 end
 

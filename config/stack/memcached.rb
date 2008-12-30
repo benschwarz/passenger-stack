@@ -5,11 +5,11 @@ package :memcached_daemon, :provides => :memcached do
   post :install, "/etc/init.d/memcached start"
   
   verify do
-    has_process "memcached"
+    has_executable 'memcached'
   end
 end
 
 package :libmemcached do
   source 'http://download.tangent.org/libmemcached-0.25.tar.gz'
-  requires :memcached
+  requires :memcached_daemon
 end
