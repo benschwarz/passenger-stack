@@ -3,6 +3,7 @@ package :memcached_daemon, :provides => :memcached do
   apt %w( memcached )
   
   post :install, "/etc/init.d/memcached start"
+  post :install, "sudo ldconfig"
   
   verify do
     has_executable 'memcached'
