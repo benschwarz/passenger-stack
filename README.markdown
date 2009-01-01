@@ -48,7 +48,8 @@ Ruby 1.8.6 isn't used within these installation scripts; Ruby Enterprise binarie
 
 ## Thanks
 
-Marcus Crafter and other Sprinkle contributors
+* Marcus Crafter and other Sprinkle contributors
+* Slicehost, for giving a free slice for testing passenger stack
 
 ## Disclaimer
 
