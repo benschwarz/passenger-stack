@@ -7,7 +7,7 @@ package :mysql, :provides => :database do
   end
 end
  
-package :mysql_driver do
+package :mysql_driver, :provides => :database_driver do
   description 'Ruby MySQL database driver'
   gem 'mysql'
   

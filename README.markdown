@@ -32,7 +32,8 @@ Read [these tips](http://github.com/benschwarz/passenger-stack/wikis/my-app-isnt
 * Passenger (Rubygem)
 * Memcached (Apt)
 * Libmemcached (Source)
-* MySQL (Apt)
+* MySQL (Apt) or PostgreSQL (Apt)
+* MySQL or PostgreSQL ruby database drivers (Rubygem)
 * Git (Apt)
 * Ruby 1.8.6* 
 
