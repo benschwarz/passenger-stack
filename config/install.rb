@@ -3,7 +3,7 @@
   require File.join(File.dirname(__FILE__), 'stack', r)
 end
 
-policy :ffolio, :roles => :app do
+policy :passenger_stack, :roles => :app do
   requires :appserver
   requires :database
   requires :database_driver

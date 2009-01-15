@@ -3,13 +3,12 @@ Scripts for [Sprinkle](http://github.com/crafterm/sprinkle/ "Sprinkle"), the pro
 
 ## How to get your sprinkle on:
 
-* Get a brand spanking new slice (ubuntu please)
-* Create yourself a user, add yourself to the sudoers file
-* Apt-get update
-* Set your slices url / ip address in deploy.rb (deploy.rb.example provided)
-* Set username in deploy.rb if it isn't the same as your local machine (deploy.rb.example provided)
+* Get a brand spanking new slice / host (Ubuntu please)
+* Create yourself a user, add yourself to the /etc/sudoers file
+* Set your slices url / ip address in deploy.rb (config/deploy.rb.example provided)
+* Set username in config/deploy.rb if it isn't the same as your local machine (config/deploy.rb.example provided)
 
-From your local system (from the passenger-stack/config directory), run:
+From your local system (from the passenger-stack directory), run:
 
     sprinkle -c -s install.rb
 
