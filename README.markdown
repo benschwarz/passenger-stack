@@ -27,18 +27,13 @@ Read [these tips](http://github.com/benschwarz/passenger-stack/wikis/my-app-isnt
 ### Wait, what does all this install?
 
 * Apache (Apt)
-* Ruby enterprise (Source) [includes rubygems]
+* Ruby Enterprise (Source) [includes rubygems]
 * Passenger (Rubygem)
 * Memcached (Apt)
 * Libmemcached (Source)
 * MySQL (Apt) or PostgreSQL (Apt)
 * MySQL or PostgreSQL ruby database drivers (Rubygem)
 * Git (Apt)
-* Ruby 1.8.6* 
-
-### Ruby 1.8.6?
-Ruby 1.8.6 isn't used within these installation scripts; Ruby Enterprise binaries overwrite the default ruby, rake, and gem binaries so as to not confuse you (by having multiple binaries available)
-
 
 ## Requirements
 * Ruby
@@ -50,6 +45,7 @@ Ruby 1.8.6 isn't used within these installation scripts; Ruby Enterprise binarie
 
 * Marcus Crafter and other Sprinkle contributors
 * Slicehost, for giving a free slice for testing passenger stack
+* Nathan de Vries for Postgres support
 
 ## Disclaimer
 

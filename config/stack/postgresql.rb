@@ -11,5 +11,5 @@ package :postgresql_driver, :provides => :database_driver do
   description 'Ruby PostgreSQL database driver'
   gem 'postgres'
   
-  requires :ruby
+  requires :ruby_enterprise
 end

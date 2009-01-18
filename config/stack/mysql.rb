@@ -11,5 +11,5 @@ package :mysql_driver, :provides => :database_driver do
   description 'Ruby MySQL database driver'
   gem 'mysql'
   
-  requires :ruby
+  requires :ruby_enterprise
 end

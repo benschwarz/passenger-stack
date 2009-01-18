@@ -1,44 +1,25 @@
 package :ruby_enterprise do
   description 'Ruby Enterprise Edition'
-  version '1.8.6-20081215'
-  source "http://rubyforge.org/frs/download.php/48623/ruby-enterprise-#{version}.tar.gz" do
-    custom_install 'echo -en "\n\n\n\n" | sudo ./installer'
-    
-    # Modify the passenger conf file to point to REE
-    post :install, 'sed -i "s|^PassengerRuby [/a-zA-Z0-9.]*$|PassengerRuby /opt/ruby-enterprise-1.8.6-20081215/bin/ruby|" /etc/apache2/extras/passenger.conf'
+  version '1.8.6-20090113'
   
-    # Restart apache
-    post :install, '/etc/init.d/apache2 restart'
+  install_path = "/usr/local/ruby-enterprise"
+  binaries = %w(erb gem irb passenger-config passenger-install-apache2-module passenger-make-enterprisey passenger-memory-stats passenger-spawn-server passenger-status passenger-stress-test rackup rails rake rdoc ree-version ri ruby testrb)
+  
+  source "http://rubyforge.org/frs/download.php/50087/ruby-enterprise-#{version}.tar.gz" do
+    custom_install 'echo -en "\n/usr/local/ruby-enterprise\n" | sudo ./installer'
     
-    # Remove standard ruby binaries
-    post :install, 'rm /usr/local/bin/ruby'
-    post :install, 'rm /usr/local/bin/gem'
-    post :install, 'rm /usr/local/bin/rake'
-    
-    # Symlink ruby enterprise binaries
-    %w(ruby gem rake rails).each do |bin|
-      post :install, "ln -s /opt/ruby-enterprise-#{version}/bin/#{bin} /usr/local/bin/"
-    end
-    
-    # Symlink for other binaries
-    #post :install "sudo ln -s /opt/ruby-enterprise-#{version}/bin/ /usr/local/bin/RE-binaries"
+    binaries.each {|bin| post :install, "ln -s #{install_path}/bin/#{bin} /usr/local/bin/#{bin}" }
   end
   
   verify do
-    has_directory "/opt/ruby-enterprise-#{version}"
-    has_executable "/opt/ruby-enterprise-#{version}/bin/ruby"
+    has_directory install_path
+    has_executable "#{install_path}/bin/ruby"
+    binaries.each {|bin| has_symlink "/usr/local/bin/#{bin}", "#{install_path}/bin/#{bin}" }
   end
   
-  requires :apache
-  requires :passenger
-  requires :zlib
-  requires :openssl
+  requires :build_essential, :apache, :ree_dependencies
 end
 
-package :zlib do
-  apt "zlib1g-dev"
-end
-
-package :openssl do
-  apt "libssl-dev"
+package :ree_dependencies do 
+  apt %w(zlib1g-dev libreadline5-dev libssl-dev)
 end
