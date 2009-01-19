@@ -43,7 +43,5 @@ package :passenger, :provides => :appserver do
     has_directory '/usr/local/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.0.6'
   end
   
-  requires :apache
-  requires :apache2_prefork_dev
-  requires :ruby_enterprise
+  requires :apache, :apache2_prefork_dev, :ruby_enterprise
 end
