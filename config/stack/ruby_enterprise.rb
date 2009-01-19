@@ -17,7 +17,7 @@ package :ruby_enterprise do
     binaries.each {|bin| has_symlink "/usr/local/bin/#{bin}", "#{install_path}/bin/#{bin}" }
   end
   
-  requires :build_essential, :apache, :ree_dependencies
+  requires :apache, :ree_dependencies
 end
 
 package :ree_dependencies do 

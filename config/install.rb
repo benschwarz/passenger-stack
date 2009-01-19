@@ -4,7 +4,6 @@
 end
 
 policy :passenger_stack, :roles => :app do
-  requires :build_essential
   requires :appserver
   requires :database
   requires :database_driver

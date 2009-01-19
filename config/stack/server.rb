@@ -7,6 +7,8 @@ package :apache, :provides => :webserver do
   verify do
     has_process 'apache2'
   end
+  
+  requires :build_essential
 end
 
 package :apache2_prefork_dev do
