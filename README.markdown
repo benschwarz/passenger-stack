@@ -1,6 +1,8 @@
 # Passenger stack, zero to hero in under five minutes
 Scripts for [Sprinkle](http://github.com/crafterm/sprinkle/ "Sprinkle"), the provisioning tool
 
+[Watch the demo screen cast](http://www.vimeo.com/2888665) of passenger-stack.
+
 ## How to get your sprinkle on:
 
 * Get a brand spanking new slice / host (Ubuntu please)
