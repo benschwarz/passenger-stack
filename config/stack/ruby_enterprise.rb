@@ -6,7 +6,7 @@ package :ruby_enterprise do
   binaries = %w(erb gem irb passenger-config passenger-install-apache2-module passenger-make-enterprisey passenger-memory-stats passenger-spawn-server passenger-status passenger-stress-test rackup rails rake rdoc ree-version ri ruby testrb)
   
   source "http://rubyforge.org/frs/download.php/50087/ruby-enterprise-#{version}.tar.gz" do
-    custom_install 'echo -en "\n/usr/local/ruby-enterprise\n" | sudo ./installer'
+    custom_install 'sudo ./installer --auto=/usr/local/ruby-enterprise'
     
     binaries.each {|bin| post :install, "ln -s #{install_path}/bin/#{bin} /usr/local/bin/#{bin}" }
   end
