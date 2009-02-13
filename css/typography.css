@@ -28,6 +28,7 @@ h4 { font-size: 1.8em; font-style: italic; font-weight: normal; letter-spacing: 
 h5 { font-size: 1.5em; font-weight: normal; letter-spacing: 0.3em; }
 
 a { color: #000; border-bottom: 1px solid; text-decoration: none; }
+a:hover { color: #666; }
 
 h6 { padding: 1em 0em 0.5em; margin: 0.7em auto 0.3em; width: 27em; }
 h6 em { font-style: normal; font-weight: normal; display: block; margin: 0em 0em -0.3em; }
