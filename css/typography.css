@@ -34,6 +34,7 @@ ul#actions { list-style: none; font-size: 1.3em; margin: 3.5em auto -1em; paddin
 ul#actions li { width: auto; text-align: center; color: #666; text-transform: uppercase; letter-spacing: 0.2em; }
 ul#actions li a { padding: 1em 0em 0em; color: #000; text-decoration: none; }
 ul#actions li p { display: block; font-size: 1em; text-align: center; text-transform: none; letter-spacing: 0em; margin: 0.3em auto 0.5em; text-indent: 0em; }
+ul#actions li p a { color: #666; }
 
 h6 { padding: 1em 0em 0.5em; margin: 0.7em auto 0.3em; width: 27em; }
 h6 em { font-style: normal; font-weight: normal; display: block; margin: 0em 0em -0.3em; }
