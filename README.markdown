@@ -45,9 +45,10 @@ Read [these tips](http://github.com/benschwarz/passenger-stack/wikis/my-app-isnt
 
 ## Thanks
 
-* Marcus Crafter and other Sprinkle contributors
-* Slicehost, for giving a free slice for testing passenger stack
-* Nathan de Vries for Postgres support
+* [Marcus Crafter](http://github.com/crafterm) and other Sprinkle contributors
+* [Slicehost](http://slicehost.com), for giving a free slice for testing passenger stack
+* [Nathan de Vries](http://github.com/atnan) for Postgres support
+* [Anthony Kolber](http://aestheticallyloyal.com) for the github pages design
 
 ## Disclaimer
 
