@@ -1,39 +1,68 @@
-body { font-family: times, "Times New Roman", serif; font-size: 62.5%; line-height: 1.4; text-align: center; margin: 0em; color: #000; }
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Passenger-stack | Sprinkle scripts to provision your server quickly</title>
+		<meta name="description" content="A collection of Sprinkle scripts to get your server up and running fast.">
+		<meta name="keywords" content="passenger-stack, sprinkle, scripts, ruby, server, provisioning">
+		<meta name="designer" content="Anthony Kolber - Aesthetically Loyal">
+		<meta name="robots" content="index, follow">
+		<meta name="robots" content="all">
 
-div#page { width: 80em; margin: 0em auto; padding: 0em 0em 6em; }
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Content-Language" content="en-au">
+		
+		<link rel="stylesheet" href="/docs/style-layer.css" type="text/css" media="screen">
+	</head>
+	<body>
+		<div id="page">
+			<p class="divider">*</p>
+			<h2>Ben Schwarz&rsquo;s</h2>
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 { margin: 0em 0em 0.5em; padding: 0; line-height: 1.6; }
+			<h1><strong>Passenger-stack</strong></h1>
+			<h3>Scripts <em>for</em> Sprinkle</h3>
+			<h4>A way to provision your server quickly</h4>
+			<h5><a href="http://github.com/benschwarz/passenger-stack/tree/master" rel="external">http://github.com/benschwarz/passenger-stack/tree/master</a></h5>
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 { text-transform: uppercase; letter-spacing: 0.2em; }
+			<ul id="actions">
 
-p.divider { font-size: 2.2em; margin: 1em 0em 0.5em; width: auto; text-align: center; }
-h2 { font-size: 1.6em; margin: -0.5em 0em 0.5em; }
-h1,
-h6 { font-size: 2.4em; }
-h1 strong,
-h6 strong { display: inline; padding: 0em 0em 0.1em; border-bottom: 0.2em solid; }
-h3 { font-size: 3em; word-spacing: -0.1em; margin: 0em 0em 0.1em; }
-h3 em { font-size: 0.6em; text-transform: lowercase; font-weight: normal; font-style: italic; letter-spacing: 0.05em; vertical-align: text-top; }
-h4 { font-size: 1.8em; font-style: italic; font-weight: normal; letter-spacing: 0.35em; color: #666; }
-h5 { font-size: 1.5em; font-weight: normal; letter-spacing: 0.3em; }
+				<li>*</li>
+				<li>
+					<a href="http://wiki.github.com/benschwarz/passenger-stack/">Wiki</a>
+					<p>Covers common issues with using passenger-stack.</p>
+				</li>
+				<li>
+					<a href="http://github.com/benschwarz/passenger-stack/blob/a6ab1601b9d1ed464af81f9c7bf5ceee45798d11/README.markdown">README</a>
 
-a { color: #000; border-bottom: 1px solid; text-decoration: none; }
+					<p>More information on getting passenger-stack up and running.</p>
+				</li>
+				<li>
+					<a href="http://www.vimeo.com/2888665">Vimeo screencast</a>
+					<p>A demonstration of executing passenger-stack on a &lsquo;Slicehost&rsquo; virtual server.</p>
+				</li>
 
-h6 { padding: 1em 0em 0.5em; margin: 0.7em auto 0.3em; width: 27em; }
-h6 em { font-style: normal; font-weight: normal; display: block; margin: 0em 0em -0.3em; }
-p { text-indent: 1em; font-size: 1.6em; width: 43em; text-align: justify; margin: 0em auto; }
+			</ul>
 
-ul#actions { list-style: none; font-size: 1.3em; margin: 3.5em auto -1em; padding: 0.7em 0em; background: #eee; border: 0.1em dotted #ddd; }
-ul#actions li { width: auto; text-align: center; color: #666; text-transform: uppercase; letter-spacing: 0.2em; }
-ul#actions li a { padding: 1em 0em 0em; color: #000; text-decoration: none; }
-ul#actions li p { display: block; font-size: 1em; text-align: center; text-transform: none; letter-spacing: 0em; margin: 0.3em auto 0.5em; }
+			<h6>
+				<em>*</em>
+				<strong>Introduction</strong>
+			</h6>
+			<p>Passenger stack is a collection of scripts for Marcus Crafter&rsquo;s &lsquo;Sprinkle&rsquo; tool, it allows you provision a standard Ruby on Rails / Rack server running Ruby Enterprise, Apache with Passenger, MySQL / Postgres and Memcached.</p>
+
+			<h6>
+				<em>*</em>
+				<strong>Contributing</strong>
+			</h6>
+			<p>The scripts utilise the Sprinkle DSL, I encourage those of you who want more than the stack currently offers to fork the project on Github and use it as an entry point.</p>
+
+			<h6>
+
+				<em>*</em>
+				<strong>Background</strong>
+			</h6>
+			<p>Passenger-stack was created to fill my own requirements of fully installing an application on a virtual server very quickly, I&rsquo;ve previously used Mike Bailey&rsquo;s &lsquo;Deprec&rsquo; amongst others, but found that they were often geared strictly towards rails. Passenger-stack attempts to be technology agnostic. Many people have similar projects that work a bit differently, I like to think of passenger stack as the bare minimum to get you running.</p>
+			<p>If you have any issues in getting passenger-stack running be sure to check the <a href="http://wiki.github.com/benschwarz/passenger-stack/my-app-isnt-running">My app isn&rsquo;t running wiki page</a> first, where you&rsquo;ll find some tips to get you going again.</p>
+
+		</div>
+	</body>
+</html>
