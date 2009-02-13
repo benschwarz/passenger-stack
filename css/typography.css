@@ -1,0 +1,39 @@
+body { font-family: times, "Times New Roman", serif; font-size: 62.5%; line-height: 1.4; text-align: center; margin: 0em; color: #000; }
+
+div#page { width: 80em; margin: 0em auto; padding: 0em 0em 6em; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { margin: 0em 0em 0.5em; padding: 0; line-height: 1.6; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { text-transform: uppercase; letter-spacing: 0.2em; }
+
+p.divider { font-size: 2.2em; margin: 1em 0em 0.5em; width: auto; text-align: center; }
+h2 { font-size: 1.6em; margin: -0.5em 0em 0.5em; }
+h1,
+h6 { font-size: 2.4em; }
+h1 strong,
+h6 strong { display: inline; padding: 0em 0em 0.1em; border-bottom: 0.2em solid; }
+h3 { font-size: 3em; word-spacing: -0.1em; margin: 0em 0em 0.1em; }
+h3 em { font-size: 0.6em; text-transform: lowercase; font-weight: normal; font-style: italic; letter-spacing: 0.05em; vertical-align: text-top; }
+h4 { font-size: 1.8em; font-style: italic; font-weight: normal; letter-spacing: 0.35em; color: #666; }
+h5 { font-size: 1.5em; font-weight: normal; letter-spacing: 0.3em; }
+
+a { color: #000; border-bottom: 1px solid; text-decoration: none; }
+
+h6 { padding: 1em 0em 0.5em; margin: 0.7em auto 0.3em; width: 27em; }
+h6 em { font-style: normal; font-weight: normal; display: block; margin: 0em 0em -0.3em; }
+p { text-indent: 1em; font-size: 1.6em; width: 43em; text-align: justify; margin: 0em auto; }
+
+ul#actions { list-style: none; font-size: 1.3em; margin: 3.5em auto -1em; padding: 0.7em 0em; background: #eee; border: 0.1em dotted #ddd; }
+ul#actions li { width: auto; text-align: center; color: #666; text-transform: uppercase; letter-spacing: 0.2em; }
+ul#actions li a { padding: 1em 0em 0em; color: #000; text-decoration: none; }
+ul#actions li p { display: block; font-size: 1em; text-align: center; text-transform: none; letter-spacing: 0em; margin: 0.3em auto 0.5em; }
