@@ -38,7 +38,7 @@ ul#actions li p a { color: #666; }
 
 h6 { padding: 1em 0em 0.5em; margin: 0.7em auto 0.3em; width: 27em; }
 h6 em { font-style: normal; font-weight: normal; display: block; margin: 0em 0em -0.3em; }
-p { text-indent: 1em; font-size: 1.6em; width: 43em; text-align: justify; margin: 0em auto; }
+p { text-indent: 1em; font-size: 1.6em; width: 43em; text-align: left; margin: 0em auto; }
 
 p#design-attribution { color: #999; margin: 2em auto 0em; font-size: 1.2em; text-align: left; width: 59em; }
 p#design-attribution a { color: #999; }
