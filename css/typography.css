@@ -1,5 +1,5 @@
 body { font-family: times, "Times New Roman", serif; font-size: 62.5%; line-height: 1.4; text-align: center; margin: 0em; color: #000; }
-
+a img { border: none; }
 img#hire-banner { position: absolute; right: 0; top: 0; }
 
 div#page { width: 80em; margin: 0em auto; padding: 0em 0em 6em; }
