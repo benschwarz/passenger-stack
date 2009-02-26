@@ -6,7 +6,6 @@ end
 policy :passenger_stack, :roles => :app do
   requires :appserver
   requires :database
-  requires :database_driver
   requires :webserver
   requires :scm 
   requires :memcached
