@@ -49,6 +49,7 @@ Read [these tips](http://github.com/benschwarz/passenger-stack/wikis/my-app-isnt
 * [Slicehost](http://slicehost.com), for giving a free slice for testing passenger stack
 * [Nathan de Vries](http://github.com/atnan) for Postgres support
 * [Anthony Kolber](http://aestheticallyloyal.com) for the github pages design
+* [Stephen Eley](http://github.com/SFEley) for some sanity checks on git dependencies
 
 ## Disclaimer
 
