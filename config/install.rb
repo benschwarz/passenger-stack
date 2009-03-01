@@ -3,6 +3,9 @@
   require File.join(File.dirname(__FILE__), 'stack', r)
 end
 
+# What we're installing to your server
+# Take what you want, leave what you don't
+# Build up your own and strip down your server until you get it right. 
 policy :passenger_stack, :roles => :app do
   requires :webserver               # Apache
   requires :appserver               # Passenger
