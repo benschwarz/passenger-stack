@@ -11,5 +11,5 @@ end
 
 package :git_dependencies do
   description 'Git Build Dependencies'
-  apt 'git', :dependencies_only => true
+  apt 'git-core', :dependencies_only => true
 end

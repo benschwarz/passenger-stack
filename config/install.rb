@@ -4,13 +4,14 @@
 end
 
 policy :passenger_stack, :roles => :app do
-  requires :appserver
-  requires :database
-  requires :webserver
-  requires :scm 
-  requires :memcached
-  requires :libmemcached
-  requires :ruby_enterprise
+  requires :webserver               # Apache
+  requires :appserver               # Passenger
+  requires :ruby_enterprise         # Ruby Enterprise edition
+  requires :database                # MySQL or Postgres
+  requires :ruby_database_driver    # mysql or postgres gems
+  requires :scm                     # Git
+  requires :memcached               # Memcached
+  requires :libmemcached            # Libmemcached
 end
 
 deployment do

@@ -16,10 +16,6 @@ package :apache2_prefork_dev do
   apt 'apache2-prefork-dev'
 end
 
-package :nginx, :provides => :webserver do
-  #http://sysoev.ru/nginx/nginx-0.6.35.tar.gz
-end
-
 package :passenger, :provides => :appserver do
   description 'Phusion Passenger (mod_rails)'
   gem 'passenger' do

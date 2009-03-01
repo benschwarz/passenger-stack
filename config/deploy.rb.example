@@ -1,9 +1,5 @@
-# Fill slice_url in
-set :slice_url, "your-app-server.com"
+# Fill slice_url in - where you're installing your stack to
+role :app, "your-app-server.com"
 
 # Fill user in - if remote user is different to your local user
 # set :user, "username"
-
-role :app, slice_url
-role :web, slice_url
-role :db,  slice_url, :primary => true
