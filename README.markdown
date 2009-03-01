@@ -52,7 +52,7 @@ Read [these tips](http://github.com/benschwarz/passenger-stack/wikis/my-app-isnt
 
 ## Disclaimer
 
-Don't run this on a system that has already been deemed "in production", its not malicious, but theres a fair chance
+Don't run this on a system that has already been deemed "in production", its not malicious, but there is a fair chance
 that you'll ass something up monumentally. You have been warned. 
 
 ### Footnotes

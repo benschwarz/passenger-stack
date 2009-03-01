@@ -5,9 +5,10 @@ package :postgres, :provides => :database do
   verify do
     has_executable 'psql'
   end
+  requires :postgresql_driver
 end
  
-package :postgresql_driver, :provides => :database_driver do
+package :postgresql_driver do
   description 'Ruby PostgreSQL database driver'
   gem 'postgres'
   

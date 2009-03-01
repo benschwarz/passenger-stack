@@ -5,9 +5,10 @@ package :mysql, :provides => :database do
   verify do
     has_executable 'mysql'
   end
+  requires :mysql_driver
 end
  
-package :mysql_driver, :provides => :database_driver do
+package :mysql_driver do
   description 'Ruby MySQL database driver'
   gem 'mysql'
   
