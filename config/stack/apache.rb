@@ -45,3 +45,59 @@ package :passenger, :provides => :appserver do
   
   requires :apache, :apache2_prefork_dev, :ruby_enterprise
 end
+
+# These "installers" are strictly optional, I believe
+# that everyone should be doing this to serve sites more quickly.
+# Simple wins.
+
+# Enable ETags
+package :apache_etag_support do
+  apache_conf = "/etc/apache2/apache2.conf"
+  config = <<eol
+  # Passenger-stack-etags
+  FileETag MTime Size
+eol
+  
+  push_text config, apache_conf, :sudo => true
+  verify { file_contains apache_conf, "Passenger-stack-etags"}
+  requires :apache
+end
+
+# mod_deflate, compress scripts before serving.
+package :apache_deflate_support do
+  apache_conf = "/etc/apache2/apache2.conf"
+  config = <<eol
+  # Passenger-stack-deflate
+  <IfModule mod_deflate.c>
+    # compress content with type html, text, and css
+    AddOutputFilterByType DEFLATE text/css text/html text/javascript application/javascript application/x-javascript text/js
+    <IfModule mod_headers.c>
+      # properly handle requests coming from behind proxies
+      Header append Vary User-Agent
+    </IfModule>
+  </IfModule>
+eol
+  
+  push_text config, apache_conf, :sudo => true
+  verify { file_contains apache_conf, "Passenger-stack-deflate"}
+  requires :apache
+end
+
+# mod_expires, add long expiry headers to css, js and image files
+package :apache_expires_support do
+  apache_conf = "/etc/apache2/apache2.conf"
+  
+  config = <<eol
+  # Passenger-stack-expires
+  <ifmodule mod_expires.c>
+    <filesmatch "\.(jpg|gif|png|css|js)$">
+         ExpiresActive on
+         ExpiresDefault "access plus 1 year"
+     </filesmatch>
+  </ifmodule>
+eol
+  
+  push_text config, apache_conf, :sudo => true
+  verify { file_contains apache_conf, "Passenger-stack-expires"}
+  requires :apache
+end

@@ -1,5 +1,5 @@
 # Require our stack
-%w(essential server scm ruby_enterprise memcached postgresql mysql).each do |r|
+%w(essential apache scm ruby_enterprise memcached postgresql mysql).each do |r|
   require File.join(File.dirname(__FILE__), 'stack', r)
 end
 
@@ -8,6 +8,11 @@ end
 # Build up your own and strip down your server until you get it right. 
 policy :passenger_stack, :roles => :app do
   requires :webserver               # Apache
+
+  requires :apache_etag_support     # == Apache extras
+  requires :apache_deflate_support  # Read about these specialties in 
+  requires :apache_expires_support  # stack/apache.rb
+
   requires :appserver               # Passenger
   requires :ruby_enterprise         # Ruby Enterprise edition
   requires :database                # MySQL or Postgres
