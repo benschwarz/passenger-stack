@@ -26,8 +26,8 @@ package :passenger, :provides => :appserver do
     post :install, 'touch /etc/apache2/extras/passenger.conf'
     post :install, 'echo "Include /etc/apache2/extras/passenger.conf"|sudo tee -a /etc/apache2/apache2.conf'
     
-    [%q(LoadModule passenger_module /usr/local/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.0.6/ext/apache2/mod_passenger.so),
-    %q(PassengerRoot /usr/local/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.0.6),
+    [%q(LoadModule passenger_module /usr/local/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.1.2/ext/apache2/mod_passenger.so),
+    %q(PassengerRoot /usr/local/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.1.2),
     %q(PassengerRuby /usr/local/bin/ruby),
     %q(RailsEnv production)].each do |line|
       post :install, "echo '#{line}' |sudo tee -a /etc/apache2/extras/passenger.conf"
@@ -39,8 +39,8 @@ package :passenger, :provides => :appserver do
   
   verify do
     has_file '/etc/apache2/extras/passenger.conf'
-    has_file '/usr/local/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.0.6/ext/apache2/mod_passenger.so'
-    has_directory '/usr/local/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.0.6'
+    has_file '/usr/local/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.1.2/ext/apache2/mod_passenger.so'
+    has_directory '/usr/local/ruby-enterprise/lib/ruby/gems/1.8/gems/passenger-2.1.2'
   end
   
   requires :apache, :apache2_prefork_dev, :ruby_enterprise
@@ -48,7 +48,6 @@ end
 
 # These "installers" are strictly optional, I believe
 # that everyone should be doing this to serve sites more quickly.
-# Simple wins.
 
 # Enable ETags
 package :apache_etag_support do
