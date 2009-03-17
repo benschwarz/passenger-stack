@@ -17,18 +17,24 @@ From your local system (from the passenger-stack directory), run:
 After you've waited for everything to run, you should have a provisioned slice.
 Go forth and install your custom configurations, add vhosts and other VPS paraphernalia.
 
+### My app isn't running!?
+
+No superfluous configuation is included, these scripts focus purely on slice installation. 
+Having said that passenger is configured to work with apache, your application should pretty much be a 'drop in' install.
+
+Read [these tips](http://github.com/benschwarz/passenger-stack/wikis/my-app-isnt-running) to get you humming
+
 Other things you should probably consider:
 
 * Close everything except for port 80 and 22
 * Disallow password logins and use a passphrased RSA key
 
-### My app isn't running
-
-Read [these tips](http://github.com/benschwarz/passenger-stack/wikis/my-app-isnt-running) to get you humming
-
 ### Wait, what does all this install?
 
 * Apache (Apt)
+  * Scripts and stylesheets are compressed using mod_deflate
+  * ETags are applied to static assets
+  * Expires headers are applied to static assets
 * Ruby Enterprise (Source) [includes rubygems]
 * Passenger (Rubygem)
 * Memcached (Apt)
