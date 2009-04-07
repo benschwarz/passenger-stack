@@ -5,7 +5,7 @@ package :apache, :provides => :webserver do
   end
 
   verify do
-    has_process 'apache2'
+    has_executable '/usr/sbin/apache2'
   end
 
   requires :build_essential
