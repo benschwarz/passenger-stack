@@ -5,6 +5,8 @@ package :mysql, :provides => :database do
   verify do
     has_executable 'mysql'
   end
+  
+  recommends :mysql_driver
 end
  
 package :mysql_driver, :provides => :ruby_database_driver do
@@ -15,5 +17,5 @@ package :mysql_driver, :provides => :ruby_database_driver do
     has_gem 'mysql'
   end
   
-  requires :mysql, :ruby_enterprise
+  requires :ruby_enterprise
 end
