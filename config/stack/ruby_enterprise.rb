@@ -1,6 +1,6 @@
 package :ruby_enterprise do
   description 'Ruby Enterprise Edition'
-  version '1.8.6-20090201'
+  version '1.8.6-20090421'
   
   install_path = "/usr/local/ruby-enterprise"
   binaries = %w(erb gem irb passenger-config passenger-install-nginx-module passenger-install-apache2-module passenger-make-enterprisey passenger-memory-stats passenger-spawn-server passenger-status passenger-stress-test rackup rails rake rdoc ree-version ri ruby testrb)
