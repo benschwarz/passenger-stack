@@ -18,7 +18,7 @@ end
 
 package :passenger, :provides => :appserver do
   description 'Phusion Passenger (mod_rails)'
-  version '2.1.3'
+  version '2.2.2'
   gem 'passenger' do
     post :install, 'echo -en "\n\n\n\n" | sudo passenger-install-apache2-module'
 

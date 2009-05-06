@@ -4,4 +4,4 @@ role :app, "your-app-server.com"
 # Fill user in - if remote user is different to your local user
 # set :user, "username"
 
-
+default_run_options[:pty] = true
