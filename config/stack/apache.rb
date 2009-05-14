@@ -5,10 +5,11 @@ package :apache, :provides => :webserver do
   end
 
   verify do
-    has_process 'apache2'
+    has_executable '/usr/sbin/apache2'
   end
 
   requires :build_essential
+  recommends :apache_etag_support, :apache_deflate_support, :apache_expires_support
 end
 
 package :apache2_prefork_dev do
@@ -18,8 +19,8 @@ end
 
 package :passenger, :provides => :appserver do
   description 'Phusion Passenger (mod_rails)'
-  version '2.1.3'
-  gem 'passenger' do
+  version '2.2.1'
+  gem 'passenger', :version => version do
     post :install, 'echo -en "\n\n\n\n" | sudo passenger-install-apache2-module'
 
     # Create the passenger conf file
@@ -45,6 +46,7 @@ package :passenger, :provides => :appserver do
   end
 
   requires :apache, :apache2_prefork_dev, :ruby_enterprise
+  recommends :passenger_binaries
 end
 
 # These "installers" are strictly optional, I believe
@@ -60,7 +62,6 @@ eol
 
   push_text config, apache_conf, :sudo => true
   verify { file_contains apache_conf, "Passenger-stack-etags"}
-  requires :apache
 end
 
 # mod_deflate, compress scripts before serving.
@@ -80,7 +81,6 @@ eol
 
   push_text config, apache_conf, :sudo => true
   verify { file_contains apache_conf, "Passenger-stack-deflate"}
-  requires :apache
 end
 
 # mod_expires, add long expiry headers to css, js and image files
@@ -99,5 +99,4 @@ eol
 
   push_text config, apache_conf, :sudo => true
   verify { file_contains apache_conf, "Passenger-stack-expires"}
-  requires :apache
 end

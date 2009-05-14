@@ -1,22 +1,29 @@
-# Require our stack
-%w(essential apache scm ruby_enterprise memcached postgresql mysql).each do |r|
-  require File.join(File.dirname(__FILE__), 'stack', r)
-end
+$:<< File.join(File.dirname(__FILE__), 'stack')
+
+# ===============
+# = Web servers = 
+# ===============
+
+# Apache and Nginx are interchangable simply by choosing which file should be included to the stack
+
+# Apache has some extra installers for etags, gzip/deflate compression and expires headers.
+# These are enabled by default when you choose Apache, you can remove these dependencies within
+# stack/apache.rb
+
+# require 'apache'
+require 'nginx'
+
+# Require the rest of our stack
+%w(essential scm ruby_enterprise memcached postgresql mysql).each(&method(:require))
 
 # What we're installing to your server
 # Take what you want, leave what you don't
 # Build up your own and strip down your server until you get it right. 
-policy :passenger_stack, :roles => :app do
+policy :stack, :roles => :app do
   requires :webserver               # Apache or Nginx
-
-  requires :apache_etag_support     # == Apache extras
-  requires :apache_deflate_support  # Read about these specialties in 
-  requires :apache_expires_support  # stack/apache.rb
-
-  requires :passenger               # Passenger
+  requires :appserver               # Passenger
   requires :ruby_enterprise         # Ruby Enterprise edition
-  requires :database                # MySQL or Postgres
-  requires :ruby_database_driver    # mysql or postgres gems
+  requires :database                # MySQL or Postgres, also installs rubygems for each
   requires :scm                     # Git
   requires :memcached               # Memcached
   requires :libmemcached            # Libmemcached
@@ -42,8 +49,8 @@ end
 
 # Depend on a specific version of sprinkle 
 begin
-  gem 'sprinkle', ">= 0.2.1" 
+  gem 'sprinkle', ">= 0.2.3" 
 rescue Gem::LoadError
-  puts "sprinkle 0.2.1 required.\n Run: `sudo gem install sprinkle`"
+  puts "sprinkle 0.2.3 required.\n Run: `sudo gem install sprinkle`"
   exit
 end
