@@ -46,6 +46,7 @@ package :passenger, :provides => :appserver do
   end
 
   requires :apache, :apache2_prefork_dev, :ruby_enterprise
+  recommends :passenger_binaries
 end
 
 # These "installers" are strictly optional, I believe
