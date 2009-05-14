@@ -7,13 +7,13 @@ end
 # Take what you want, leave what you don't
 # Build up your own and strip down your server until you get it right. 
 policy :passenger_stack, :roles => :app do
-  requires :webserver               # Apache
+  requires :webserver               # Apache or Nginx
 
   requires :apache_etag_support     # == Apache extras
   requires :apache_deflate_support  # Read about these specialties in 
   requires :apache_expires_support  # stack/apache.rb
 
-  requires :appserver               # Passenger
+  requires :passenger               # Passenger
   requires :ruby_enterprise         # Ruby Enterprise edition
   requires :database                # MySQL or Postgres
   requires :ruby_database_driver    # mysql or postgres gems
