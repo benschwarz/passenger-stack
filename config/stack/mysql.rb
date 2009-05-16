@@ -6,7 +6,7 @@ package :mysql, :provides => :database do
     has_executable 'mysql'
   end
   
-  recommends :mysql_driver
+  optional :mysql_driver
 end
  
 package :mysql_driver, :provides => :ruby_database_driver do

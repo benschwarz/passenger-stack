@@ -1,5 +1,8 @@
 $:<< File.join(File.dirname(__FILE__), 'stack')
 
+# Require the stack base
+%w(essential scm ruby_enterprise memcached postgresql mysql).each(&method(:require))
+
 # ===============
 # = Web servers = 
 # ===============
@@ -10,11 +13,8 @@ $:<< File.join(File.dirname(__FILE__), 'stack')
 # These are enabled by default when you choose Apache, you can remove these dependencies within
 # stack/apache.rb
 
-# require 'apache'
-require 'nginx'
-
-# Require the rest of our stack
-%w(essential scm ruby_enterprise memcached postgresql mysql).each(&method(:require))
+require 'apache'
+#require 'nginx'
 
 # What we're installing to your server
 # Take what you want, leave what you don't
@@ -23,10 +23,10 @@ policy :stack, :roles => :app do
   requires :webserver               # Apache or Nginx
   requires :appserver               # Passenger
   requires :ruby_enterprise         # Ruby Enterprise edition
-  requires :database                # MySQL or Postgres, also installs rubygems for each
-  requires :scm                     # Git
-  requires :memcached               # Memcached
-  requires :libmemcached            # Libmemcached
+  #requires :database                # MySQL or Postgres, also installs rubygems for each
+  #requires :scm                     # Git
+  #requires :memcached               # Memcached
+  #requires :libmemcached            # Libmemcached
 end
 
 deployment do

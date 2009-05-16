@@ -6,7 +6,7 @@ package :postgres, :provides => :database do
     has_executable 'psql'
   end
 
-  recommends :postgresql_driver
+  optional :postgresql_driver
 end
  
 package :postgresql_driver, :provides => :ruby_database_driver do

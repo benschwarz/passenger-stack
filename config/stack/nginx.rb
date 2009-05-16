@@ -9,32 +9,36 @@
 # be strange. 
 
 package :nginx, :provides => :webserver do
-  puts "Nginx installed by passenger"
+  puts "** Nginx installed by passenger gem **"
+  requires :passenger
+  
+  push_text File.read(File.join(File.dirname(__FILE__), 'nginx', 'init.d')), "/etc/init.d/nginx", :sudo => true do
+    post :install, "sudo chmod +x /etc/init.d/nginx"
+    post :install, "sudo /usr/sbin/update-rc.d -f nginx defaults"
+    post :install, "sudo /etc/init.d/nginx start"
+  end
+  
+  verify do
+    has_executable "/usr/local/nginx/sbin/nginx"
+    has_file "/etc/init.d/nginx"
+  end
 end
 
 package :passenger, :provides => :appserver do
   description 'Phusion Passenger (mod_rails)'
-  version '2.2.3'
+  version '2.2.2'
+  binaries = %w(passenger-config passenger-install-nginx-module passenger-install-apache2-module passenger-make-enterprisey passenger-memory-stats passenger-spawn-server passenger-status passenger-stress-test)
   
-  gem 'passenger', :version => version do
+  gem 'passenger', :version => version do    
     # Install nginx and the module
+    binaries.each {|bin| post :install, "ln -s #{REE_PATH}/bin/#{bin} /usr/local/bin/#{bin}"}
     post :install, "sudo passenger-install-nginx-module --auto --auto-download --prefix=/usr/local/nginx"
-    
-    post :install do
-      # Install nginx init.d script
-      #push_text File.read(File.join(File.dirname(__FILE__), 'nginx', 'init.d')), "/etc/init.d/nginx", :sudo => true
-    end
-    
-    #post :install, "sudo chmod +x /etc/init.d/nginx"
-    #post :install, "sudo /usr/sbin/update-rc.d -f nginx defaults"
-    #post :install, "sudo /etc/init.d/nginx start"
   end
   
   requires :ruby_enterprise
-  recommends :passenger_binaries
   
-  #verify do
-  #  has_executable "/usr/local/nginx/sbin/nginx"
-  #  has_gem "passenger", version
-  #end
+  verify do
+    has_gem "passenger", version
+    binaries.each {|bin| has_symlink "/usr/local/bin/#{bin}", "#{REE_PATH}/bin/#{bin}" }
+  end
 end
