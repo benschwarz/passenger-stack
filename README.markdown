@@ -47,7 +47,13 @@ Other things you should probably consider:
 * Ruby
 * Capistrano
 * Sprinkle (github.com/crafterm/sprinkle)
-* An Ubuntu based VPS (known to not work on Debian Etch†)
+* An Ubuntu or Debian based VPS
+
+If you're interested in using Fedora or RedHat then maybe you should checkout one of these:
+
+* http://github.com/nwp/passenger-stack
+* http://github.com/l15n/yummy-sprinkles
+* http://github.com/kjwierenga/passenger-stack
 
 ## Thanks
 
@@ -61,7 +67,3 @@ Other things you should probably consider:
 
 Don't run this on a system that has already been deemed "in production", its not malicious, but there is a fair chance
 that you'll ass something up monumentally. You have been warned. 
-
-### Footnotes
-
-† This issue lies between differences in apt between debian and ubuntu, my feedback has been forwarded and discussed with Marcus, the author of sprinkle. I believe he is looking into it.
