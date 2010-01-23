@@ -16,7 +16,7 @@ DAEMON=/usr/local/nginx/sbin/nginx
 NAME=nginx
 DESC=nginx
 
-test -x $DAEMON || echo -n "$DESC daemon not found at $DAEMON" exit 0
+test -x $DAEMON || exit 0
 
 # Include nginx defaults if available
 if [ -f /etc/default/nginx ] ; then
@@ -48,16 +48,16 @@ case "$1" in
         echo "$NAME."
         ;;
   reload)
-      echo -n "Reloading $DESC configuration: "
-      start-stop-daemon --stop --signal HUP --quiet --pidfile /usr/local/nginx/logs/$NAME.pid \
-          --exec $DAEMON
-      echo "$NAME."
-      ;;
-  *)
-        N=/etc/init.d/$NAME
-        echo "Usage: $N {start|stop|restart|force-reload}" >&2
-        exit 1
-        ;;
-esac
+          echo -n "Reloading $DESC configuration: "
+          start-stop-daemon --stop --signal HUP --quiet --pidfile     /usr/local/nginx/logs/$NAME.pid \
+              --exec $DAEMON 
+          echo "$NAME."
+          ;;
+      *)
+            N=/etc/init.d/$NAME
+            echo "Usage: $N {start|stop|restart|reload|force-reload}" >&2
+            exit 1   
+            ;;
+    esac
 
-exit 0
+    exit 0
