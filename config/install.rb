@@ -15,8 +15,8 @@ end
 # These are enabled by default when you choose Apache, you can remove these dependencies within
 # stack/apache.rb
 
-#require 'apache'
-require 'nginx'
+require 'apache'
+# require 'nginx'
 
 # What we're installing to your server
 # Take what you want, leave what you don't

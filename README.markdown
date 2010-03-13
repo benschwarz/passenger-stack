@@ -43,6 +43,11 @@ You can work around this issue by tweaking `/etc/ssh/sshd_config` to include the
   * Scripts and stylesheets are compressed using mod_deflate
   * ETags are applied to static assets
   * Expires headers are applied to static assets
+  
+or 
+
+* Nginx (Source)  
+  
 * Ruby Enterprise (Source) [includes rubygems]
 * Passenger (Rubygem)
 * Memcached (Apt)
