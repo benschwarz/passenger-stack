@@ -1,3 +1,5 @@
+# Rename this file to deploy.rb
+
 # Fill slice_url in - where you're installing your stack to
 role :app, "your-app-server.com"
 

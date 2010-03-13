@@ -1,10 +1,12 @@
 package :mysql, :provides => :database do
   description 'MySQL Database'
-  apt %w( mysql-server mysql-client libmysqlclient15-dev )
+  apt %w( mysql-server mysql-client libmysqlclient-dev )
   
   verify do
     has_executable 'mysql'
   end
+  
+  optional :mysql_driver
 end
  
 package :mysql_driver, :provides => :ruby_database_driver do
@@ -15,5 +17,5 @@ package :mysql_driver, :provides => :ruby_database_driver do
     has_gem 'mysql'
   end
   
-  requires :mysql, :ruby_enterprise
+  requires :ruby_enterprise
 end
