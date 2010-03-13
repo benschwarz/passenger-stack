@@ -55,7 +55,13 @@ You can work around this issue by tweaking `/etc/ssh/sshd_config` to include the
 * Ruby
 * Capistrano
 * Sprinkle (github.com/crafterm/sprinkle)
-* An Ubuntu or Debian based VPS (Ubuntu 9.10 Karmic has proven to make some changes)
+* An Ubuntu or Debian based VPS
+
+If you're interested in using Fedora or RedHat then maybe you should checkout one of these:
+
+* http://github.com/nwp/passenger-stack
+* http://github.com/l15n/yummy-sprinkles
+* http://github.com/kjwierenga/passenger-stack
 
 ## Thanks
 
