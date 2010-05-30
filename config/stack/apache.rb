@@ -9,7 +9,7 @@ package :apache, :provides => :webserver do
   end
 
   requires :build_essential
-  recommends :apache_etag_support, :apache_deflate_support, :apache_expires_support
+  optional :apache_etag_support, :apache_deflate_support, :apache_expires_support
 end
 
 package :apache2_prefork_dev do
